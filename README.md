@@ -77,7 +77,7 @@ Then open http://localhost:5173 in your browser.
 
 **Option 3: Docker Compose / Portainer**
 
-Use the provided `docker-compose.yml` to build and run both the backend and frontend. Ensure the `OPENROUTER_API_KEY` environment variable is set in your shell or deployment environment before starting the stack:
+Use the provided `docker-compose.yml` to build and run both the backend and frontend. The backend container installs this project (from `pyproject.toml`) before starting Uvicorn, and the frontend builds from `frontend/package-lock.json`. Ensure the `OPENROUTER_API_KEY` environment variable is set in your shell or deployment environment before starting the stack:
 
 ```bash
 # Build and start

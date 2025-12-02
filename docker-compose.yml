@@ -13,23 +13,22 @@ services:
     command: >-
       sh -c "apt-get update && \
       apt-get install -y --no-install-recommends build-essential && \
-      pip install --no-cache-dir fastapi uvicorn[standard] python-dotenv httpx pydantic && \
+      pip install --no-cache-dir . && \
       mkdir -p data/conversations && \
-      uvicorn backend.main:app --host 0.0.0.0 --port 8001"
+      uvicorn backend.main:app --host 0.0.0.0 --port 8001 --app-dir /app"
     ports:
       - "8001:8001"
     restart: unless-stopped
 
   frontend:
     image: node:20-alpine
-    working_dir: /app
+    working_dir: /app/frontend
     environment:
       VITE_API_BASE: ${VITE_API_BASE:-http://backend:8001}
     volumes:
       - ./frontend:/app/frontend
     command: >-
       sh -c "apk add --no-cache git && \
-      cd frontend && \
       npm ci && \
       npm run build && \
       npx http-server ./dist -p 5173 -a 0.0.0.0"
