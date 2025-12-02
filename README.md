@@ -34,11 +34,7 @@ cd ..
 
 ### 2. Configure API Key
 
-Create a `.env` file in the project root:
-
-```bash
-OPENROUTER_API_KEY=sk-or-v1-...
-```
+Set the `OPENROUTER_API_KEY` environment variable (for example via `export OPENROUTER_API_KEY=sk-or-v1-...`).
 
 Get your API key at [openrouter.ai](https://openrouter.ai/). Make sure to purchase the credits you need, or sign up for automatic top up.
 
@@ -81,7 +77,7 @@ Then open http://localhost:5173 in your browser.
 
 **Option 3: Docker Compose / Portainer**
 
-Use the provided `docker-compose.yml` to build and run both the backend and frontend:
+Use the provided `docker-compose.yml` to build and run both the backend and frontend. Ensure the `OPENROUTER_API_KEY` environment variable is set in your shell or deployment environment before starting the stack:
 
 ```bash
 # Build and start
