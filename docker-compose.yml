@@ -7,8 +7,6 @@ services:
       dockerfile: Dockerfile.backend
     ports:
       - "8001:8001"
-    environment:
-      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:?OPENROUTER_API_KEY is required}
     volumes:
       - data:/app/data
     restart: unless-stopped
