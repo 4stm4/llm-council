@@ -79,6 +79,20 @@ npm run dev
 
 Then open http://localhost:5173 in your browser.
 
+**Option 3: Docker Compose / Portainer**
+
+Use the provided `docker-compose.yml` to build and run both the backend and frontend:
+
+```bash
+# Build and start
+docker compose up -d --build
+
+# Stop services
+docker compose down
+```
+
+The frontend will be available at http://localhost:5173 and the backend at http://localhost:8001. Set your `OPENROUTER_API_KEY` in a `.env` file in the project root before running so the backend container can read it.
+
 ## Tech Stack
 
 - **Backend:** FastAPI (Python 3.10+), async httpx, OpenRouter API
